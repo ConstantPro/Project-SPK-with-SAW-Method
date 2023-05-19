@@ -10,7 +10,7 @@
     <script src="/public/dist/js/custom.js"></script>
     <!--  current page js files -->
     <script src="/public/dist/libs/owl.carousel/dist/owl.carousel.min.js"></script>
-    <!-- <script src="/public/dist/libs/apexcharts/dist/apexcharts.min.js"></script> -->
+    <script src="/public/dist/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="/public/dist/js/dashboard.js"></script>
 
 </body>

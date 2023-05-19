@@ -1,6 +1,11 @@
 <?php
 
     require_once('./config/koneksi.php');
+    $server = $_SERVER;
+    $route = 'http://'.$server['HTTP_HOST'].'/view/login.php';
 
-    header('./view/login.php');
-    die();
+    if(headers_sent() === false) {
+        header('Location:'.$route);
+    }
+
+    exit();
