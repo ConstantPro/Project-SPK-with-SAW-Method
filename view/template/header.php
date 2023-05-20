@@ -10,7 +10,7 @@
         <meta name="author" content="Anah" />
         <meta name="keywords" content="Project UAS Anah" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Document</title>
+        <title>Pengambilan Surat Keputusan</title>
 
         <!--  Favicon -->
         <link rel="shortcut icon" type="image/png" href="/public/dist/images/logos/favicon.png" />
