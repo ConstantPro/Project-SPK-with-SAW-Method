@@ -69,7 +69,7 @@
                         <p class="mb-0 fw-normal fs-4"><?= $value['sifat']; ?></p>  
                       </td>
                       <td>
-                        <p class="mb-0 fw-normal fs-4"><?= $value['user_created']; ?></p>
+                        <p class="mb-0 fw-normal fs-4"><?= $value['dibuat_oleh']; ?></p>
                       </td>
                       <td>
                       <p class="mb-0 fw-normal fs-4"><?= $value['dibuat_tanggal']; ?></p>

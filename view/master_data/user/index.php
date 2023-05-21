@@ -1,6 +1,6 @@
 <?php
   require(__DIR__.'/../../../functions/functions.php');
-  $data = get_data_kriteria();
+  $data = get_data_user();
   require(__DIR__.'/../../template/header.php');
   require(__DIR__.'/../../template/dashboard/loadingTemplate.php');
 
@@ -16,13 +16,13 @@
           <div class="card-body px-4 py-3">
             <div class="row align-items-center">
               <div class="col-9">
-                <h4 class="fw-semibold mb-8">Kriteria</h4>
+                <h4 class="fw-semibold mb-8">User</h4>
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                       <a class="text-muted" href="/view/dashboard.php">Dashboard</a>
                     </li>
-                    <li class="breadcrumb-item" aria-current="page">Kriteria</li>
+                    <li class="breadcrumb-item" aria-current="page">User</li>
                   </ol>
                 </nav>
               </div>
@@ -46,11 +46,10 @@
               <table class="table border text-nowrap customize-table mb-0 align-middle">
                 <thead class="text-dark fs-4">
                   <tr>
-                    <th><h6 class="fs-4 fw-semibold mb-0">Kode</h6></th>
-                    <th><h6 class="fs-4 fw-semibold mb-0">Nama</h6></th>
-                    <th><h6 class="fs-4 fw-semibold mb-0">Sifat</h6></th>
-                    <th><h6 class="fs-4 fw-semibold mb-0">Dibuat Oleh</h6></th>
+                    <th><h6 class="fs-4 fw-semibold mb-0">Username</h6></th>
+                    <th><h6 class="fs-4 fw-semibold mb-0">Status</h6></th>
                     <th><h6 class="fs-4 fw-semibold mb-0">Dibuat Tanggal</h6></th>
+                    <th><h6 class="fs-4 fw-semibold mb-0">Role</h6></th>
                     <th><h6 class="fs-4 fw-semibold mb-0">Opsi</h6></th>
                   </tr>
                 </thead>
@@ -60,19 +59,16 @@
                   ?>
                     <tr>
                       <td>
-                        <p class="fs-4 fw-semibold mb-0"><?= $value['kode']; ?></p>
+                        <p class="mb-0 fw-normal fs-4"><?= $value['username']; ?></p>
                       </td>
                       <td>
-                        <p class="mb-0 fw-normal fs-4"><?= $value['nama']; ?></p>
+                        <p class="mb-0 fw-normal fs-4 badge rounded-pill bg-<?= $value['is_active'] ? 'success' : 'danger'; ?>"><?= $value['is_active'] ? 'Aktif' : 'Tidak Aktif'; ?></p>  
                       </td>
                       <td>
-                        <p class="mb-0 fw-normal fs-4"><?= $value['sifat']; ?></p>  
+                        <p class="mb-0 fw-normal fs-4"><?= $value['dibuat_tanggal']; ?></p>
                       </td>
                       <td>
-                        <p class="mb-0 fw-normal fs-4"><?= $value['user_created']; ?></p>
-                      </td>
-                      <td>
-                      <p class="mb-0 fw-normal fs-4"><?= $value['dibuat_tanggal']; ?></p>
+                        <p class="mb-0 fw-normal fs-4"><?= $value['role']; ?></p>
                       </td>
                       <td>
                         <a href="./edit.php?id=<?= $value['id']; ?>" class="btn btn-success btn-sm">Edit</a>

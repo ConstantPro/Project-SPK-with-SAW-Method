@@ -14,16 +14,10 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav scroll-sidebar" data-simplebar>
         <ul id="sidebarnav">
-            <!-- ============================= -->
-            <!-- Home -->
-            <!-- ============================= -->
             <li class="nav-small-cap">
             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
             <span class="hide-menu">Home</span>
             </li>
-            <!-- =================== -->
-            <!-- Dashboard -->
-            <!-- =================== -->
             <li class="sidebar-item">
                 <a class="sidebar-link" href="/view/dashboard.php" aria-expanded="false">
                     <span>
@@ -41,6 +35,22 @@
             </a>
             <ul aria-expanded="false" class="collapse first-level">
                 <li class="sidebar-item">
+                    <a href="/view/master_data/user/index.php" class="sidebar-link">
+                        <div class="round-16 d-flex align-items-center justify-content-center">
+                        <i class="ti ti-circle"></i>
+                        </div>
+                        <span class="hide-menu">User</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/view/master_data/beasiswa/index.php" class="sidebar-link">
+                        <div class="round-16 d-flex align-items-center justify-content-center">
+                        <i class="ti ti-circle"></i>
+                        </div>
+                        <span class="hide-menu">Beasiswa</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <a href="/view/master_data/kriteria/index.php" class="sidebar-link">
                         <div class="round-16 d-flex align-items-center justify-content-center">
                             <i class="ti ti-circle"></i>
@@ -49,31 +59,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="ui-badge.html" class="sidebar-link">
-                        <div class="round-16 d-flex align-items-center justify-content-center">
-                        <i class="ti ti-circle"></i>
-                        </div>
-                        <span class="hide-menu">Model</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="ui-dropdowns.html" class="sidebar-link">
-                        <div class="round-16 d-flex align-items-center justify-content-center">
-                        <i class="ti ti-circle"></i>
-                        </div>
-                        <span class="hide-menu">Beasiswa</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="ui-buttons.html" class="sidebar-link">
-                        <div class="round-16 d-flex align-items-center justify-content-center">
-                        <i class="ti ti-circle"></i>
-                        </div>
-                        <span class="hide-menu">Parameter Penilaian</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="ui-modals.html" class="sidebar-link">
+                    <a href="/view/master_data/mahasiswa/index.php" class="sidebar-link">
                         <div class="round-16 d-flex align-items-center justify-content-center">
                         <i class="ti ti-circle"></i>
                         </div>
@@ -81,11 +67,19 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="ui-tab.html" class="sidebar-link">
+                    <a href="/view/master_data/model/index.php" class="sidebar-link">
                         <div class="round-16 d-flex align-items-center justify-content-center">
                         <i class="ti ti-circle"></i>
                         </div>
-                        <span class="hide-menu">User</span>
+                        <span class="hide-menu">Model</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="/view/master_data/parameter_penilaian/index.php" class="sidebar-link">
+                        <div class="round-16 d-flex align-items-center justify-content-center">
+                        <i class="ti ti-circle"></i>
+                        </div>
+                        <span class="hide-menu">Parameter Penilaian</span>
                     </a>
                 </li>
             </ul>
@@ -100,14 +94,13 @@
             </li>
         </ul>
         <div class="unlimited-access hide-menu bg-light-primary position-relative my-7 rounded">
-            <div class="d-flex">
-            <div class="unlimited-access-title">
-                <h6 class="fw-semibold fs-4 mb-6 text-dark w-85">Unlimited Access</h6>
-                <button class="btn btn-primary fs-2 fw-semibold lh-sm">Signup</button>
-            </div>
-            <div class="unlimited-access-img">
-                <img src="/public/dist/images/backgrounds/rocket.png" alt="" class="img-fluid">
-            </div>
+            <div class="d-flex align-items-center">
+                <div class="unlimited-access-title">
+                    <h6 class="fw-semibold fs-4 mb-6 text-dark w-85">Application Access</h6>
+                </div>
+                <div class="unlimited-access-img">
+                    <img src="/public/dist/images/backgrounds/rocket.png" alt="" class="img-fluid">
+                </div>
             </div>
         </div>
         </nav>
