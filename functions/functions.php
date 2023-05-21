@@ -374,6 +374,162 @@ function delete_user($id) {
     ];
 }
 
+// function for action model
+function get_data_model($id = null) {
+    $query = "SELECT model.*, user.username as user_created, beasiswa.nama as beasiswa, kriteria.nama as kriteria FROM model LEFT JOIN user ON user.id = model.dibuat_oleh LEFT JOIN kriteria ON kriteria.id = model.kriteria_id LEFT JOIN beasiswa ON beasiswa.id = model.beasiswa_id";
+    
+    if($id) {
+        $query = $query." WHERE model.id = ".$id."";
+    }
+
+    $get_data = mysqli_query($GLOBALS['conn'], $query);
+
+    if(!$get_data) {
+        return [];
+    }
+    return $get_data;
+}
+
+function simpan_model($request) {
+    $beasiswa_id = htmlspecialchars($request['beasiswa_id']);
+    $kriteria_id = htmlspecialchars($request['kriteria_id']);
+    $bobot = htmlspecialchars($request['bobot']);
+    $session = $_SESSION;
+
+    $query = "INSERT INTO model VALUES (null,'".$beasiswa_id."', '".$kriteria_id."', '".$bobot."', '".$session['id_user']."', '".date('Y-m-d h:i:s')."')";
+    
+    $simpan = mysqli_query($GLOBALS['conn'], $query);
+    
+    if(!$simpan) {
+        return [
+            'message' => 'Something went wrong!!',
+            'error' => true
+        ];
+    }
+
+    return [
+        'message' => 'Model created successfully',
+        'error' => false
+    ];
+}
+
+function update_model($request) {
+    $beasiswa_id = htmlspecialchars($request['beasiswa_id']);
+    $kriteria_id = htmlspecialchars($request['kriteria_id']);
+    $bobot = htmlspecialchars($request['bobot']);
+
+    $query = "UPDATE model SET beasiswa_id='".$beasiswa_id."', kriteria_id='".$kriteria_id."', bobot='".$bobot."' WHERE id=".$request['id']."";
+
+    $update = mysqli_query($GLOBALS['conn'], $query);
+    
+    if(!$update) {
+        return [
+            'message' => 'Something went wrong!!',
+            'error' => true
+        ];
+    }
+
+    return [
+        'message' => 'Model updated successfully',
+        'error' => false
+    ];
+}
+
+function delete_model($id) {
+    $query = 'DELETE FROM model WHERE id="'.$id.'"';
+    $delete = mysqli_query($GLOBALS['conn'], $query);
+    if($delete){
+        return [
+            'message' => 'Data deleted failed',
+            'error' => true,
+        ];
+    }
+
+    return [
+        'message' => 'Data deleted successfully',
+        'error' => false,
+    ];
+}
+
+// function for action parameter_penilaian
+function get_data_parameter_penilaian($id = null) {
+    $query = "SELECT parameter_penilaian.*, user.username as user_created, beasiswa.nama as beasiswa, kriteria.nama as kriteria FROM parameter_penilaian LEFT JOIN user ON user.id = parameter_penilaian.dibuat_oleh LEFT JOIN kriteria ON kriteria.id = parameter_penilaian.kriteria_id LEFT JOIN beasiswa ON beasiswa.id = parameter_penilaian.beasiswa_id";
+    
+    if($id) {
+        $query = $query." WHERE model.id = ".$id."";
+    }
+
+    $get_data = mysqli_query($GLOBALS['conn'], $query);
+
+    if(!$get_data) {
+        return [];
+    }
+    return $get_data;
+}
+
+function simpan_parameter_penilaian($request) {
+    $beasiswa_id = htmlspecialchars($request['beasiswa_id']);
+    $kriteria_id = htmlspecialchars($request['kriteria_id']);
+    $keterangan = htmlspecialchars($request['keterangan']);
+    $bobot = htmlspecialchars($request['bobot']);
+    $session = $_SESSION;
+
+    $query = "INSERT INTO parameter_penilaian VALUES (null,'".$beasiswa_id."', '".$kriteria_id."', '".$keterangan."', '".$bobot."', '".$session['id_user']."', '".date('Y-m-d h:i:s')."')";
+    
+    $simpan = mysqli_query($GLOBALS['conn'], $query);
+    
+    if(!$simpan) {
+        return [
+            'message' => 'Something went wrong!!',
+            'error' => true
+        ];
+    }
+
+    return [
+        'message' => 'Parameter Penilaian created successfully',
+        'error' => false
+    ];
+}
+
+function update_parameter_penilaian($request) {
+    $beasiswa_id = htmlspecialchars($request['beasiswa_id']);
+    $kriteria_id = htmlspecialchars($request['kriteria_id']);
+    $keterangan = htmlspecialchars($request['keterangan']);
+    $bobot = htmlspecialchars($request['bobot']);
+
+    $query = "UPDATE parameter_penilaian SET beasiswa_id='".$beasiswa_id."', kriteria_id='".$kriteria_id."', keterangan='".$keterangan."' bobot='".$bobot."' WHERE id=".$request['id']."";
+
+    $update = mysqli_query($GLOBALS['conn'], $query);
+    
+    if(!$update) {
+        return [
+            'message' => 'Something went wrong!!',
+            'error' => true
+        ];
+    }
+
+    return [
+        'message' => 'Parameter Penilaian updated successfully',
+        'error' => false
+    ];
+}
+
+function delete_parameter_penilaian($id) {
+    $query = 'DELETE FROM model WHERE id="'.$id.'"';
+    $delete = mysqli_query($GLOBALS['conn'], $query);
+    if($delete){
+        return [
+            'message' => 'Data deleted failed',
+            'error' => true,
+        ];
+    }
+
+    return [
+        'message' => 'Data deleted successfully',
+        'error' => false,
+    ];
+}
+
 // validation text form for input
 function validation_text_form($data) {
     $data = trim($data);
