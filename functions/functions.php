@@ -467,6 +467,21 @@ function get_data_parameter_penilaian($id = null) {
     return $get_data;
 }
 
+function get_data_parameter_penilaian_for_pengajuan($kriteria_id = null, $beasiswa_id = null) {
+    $query = "SELECT parameter_penilaian.*, user.username as user_created, beasiswa.nama as beasiswa, kriteria.nama as kriteria FROM parameter_penilaian LEFT JOIN user ON user.id = parameter_penilaian.dibuat_oleh LEFT JOIN kriteria ON kriteria.id = parameter_penilaian.kriteria_id LEFT JOIN beasiswa ON beasiswa.id = parameter_penilaian.beasiswa_id";
+    
+    if($kriteria_id) {
+        $query = $query." WHERE parameter_penilaian.kriteria_id = ".$kriteria_id." AND parameter_penilaian.beasiswa_id = ".$beasiswa_id;
+    }
+
+    $get_data = mysqli_query($GLOBALS['conn'], $query);
+
+    if(!$get_data) {
+        return [];
+    }
+    return $get_data;
+}
+
 function simpan_parameter_penilaian($request) {
     $beasiswa_id = htmlspecialchars($request['beasiswa_id']);
     $kriteria_id = htmlspecialchars($request['kriteria_id']);
@@ -515,7 +530,86 @@ function update_parameter_penilaian($request) {
 }
 
 function delete_parameter_penilaian($id) {
-    $query = 'DELETE FROM model WHERE id="'.$id.'"';
+    $query = 'DELETE FROM parameter_penilaian WHERE id="'.$id.'"';
+    $delete = mysqli_query($GLOBALS['conn'], $query);
+    if($delete){
+        return [
+            'message' => 'Data deleted failed',
+            'error' => true,
+        ];
+    }
+
+    return [
+        'message' => 'Data deleted successfully',
+        'error' => false,
+    ];
+}
+
+// function for action pengajuan beasiswa
+function get_data_pengajuan_beasiswa($id = null) {
+    $query = "SELECT pengajuan_beasiswa.*, user.username as user_created, beasiswa.nama as beasiswa, kriteria.nama as kriteria, mahasiswa.nama as mahasiswa, parameter_penilaian.bobot as nilai_data FROM pengajuan_beasiswa LEFT JOIN user ON user.id = pengajuan_beasiswa.dibuat_oleh LEFT JOIN kriteria ON kriteria.id = pengajuan_beasiswa.kriteria_id LEFT JOIN beasiswa ON beasiswa.id = pengajuan_beasiswa.beasiswa_id LEFT JOIN mahasiswa ON mahasiswa.id = pengajuan_beasiswa.mahasiswa_id LEFT JOIN parameter_penilaian ON parameter_penilaian.id = pengajuan_beasiswa.nilai";
+    
+    if($id) {
+        $query = $query." WHERE pengajuan_beasiswa.id = ".$id."";
+    }
+
+    $get_data = mysqli_query($GLOBALS['conn'], $query);
+
+    if(!$get_data) {
+        return [];
+    }
+    return $get_data;
+}
+
+function simpan_pengajuan_beasiswa($request) {
+    $beasiswa_id = htmlspecialchars($request['beasiswa_id']);
+    $kriteria_id = htmlspecialchars($request['kriteria_id']);
+    $mahasiswa_id = htmlspecialchars($request['mahasiswa_id']);
+    $nilai = htmlspecialchars($request['nilai']);
+    $session = $_SESSION;
+
+    $query = "INSERT INTO pengajuan_beasiswa VALUES (null,'".$beasiswa_id."', '".$kriteria_id."', '".$mahasiswa_id."', '".$nilai."', '".$session['id_user']."', '".date('Y-m-d h:i:s')."')";
+    
+    $simpan = mysqli_query($GLOBALS['conn'], $query);
+    
+    if(!$simpan) {
+        return [
+            'message' => 'Something went wrong!!',
+            'error' => true
+        ];
+    }
+
+    return [
+        'message' => 'Parameter Penilaian created successfully',
+        'error' => false
+    ];
+}
+
+function update_pengajuan_beasiswa($request) {
+    $beasiswa_id = htmlspecialchars($request['beasiswa_id']);
+    $kriteria_id = htmlspecialchars($request['kriteria_id']);
+    $mahasiswa_id = htmlspecialchars($request['mahasiswa_id']);
+    $nilai = htmlspecialchars($request['nilai']);
+
+    $query = "UPDATE pengajuan_beasiswa SET beasiswa_id='".$beasiswa_id."', kriteria_id='".$kriteria_id."', mahasiswa_id='".$mahasiswa_id."' nilai='".$nilai."' WHERE id=".$request['id']."";
+
+    $update = mysqli_query($GLOBALS['conn'], $query);
+    
+    if(!$update) {
+        return [
+            'message' => 'Something went wrong!!',
+            'error' => true
+        ];
+    }
+
+    return [
+        'message' => 'Parameter Penilaian updated successfully',
+        'error' => false
+    ];
+}
+
+function delete_pengajuan_beasiswa($id) {
+    $query = 'DELETE FROM pengajuan_beasiswa WHERE id="'.$id.'"';
     $delete = mysqli_query($GLOBALS['conn'], $query);
     if($delete){
         return [

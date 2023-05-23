@@ -18,7 +18,10 @@
         <link rel="stylesheet" href="/public/dist/libs/owl.carousel/dist/assets/owl.carousel.min.css">
         
         <!-- Core Css -->
-        <link  id="themeColors"  rel="stylesheet" href="/public/dist/css/style.min.css" />
+        <link  id="themeColors"  rel="stylesheet" href="/public/dist/css/style.min.css" />\
+
+        <!--  Import Js Files -->
+        <script src="/public/dist/libs/jquery/dist/jquery.min.js"></script>
     </head>
     <body>
         
