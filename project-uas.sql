@@ -11,7 +11,7 @@
  Target Server Version : 50733
  File Encoding         : 65001
 
- Date: 21/05/2023 15:38:52
+ Date: 25/05/2023 22:43:27
 */
 
 SET NAMES utf8mb4;
@@ -27,7 +27,7 @@ CREATE TABLE `beasiswa`  (
   `dibuat_oleh` bigint(20) NULL DEFAULT NULL,
   `dibuat_tanggal` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of beasiswa
@@ -46,12 +46,13 @@ CREATE TABLE `kriteria`  (
   `dibuat_oleh` int(11) NULL DEFAULT NULL,
   `dibuat_tanggal` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of kriteria
 -- ----------------------------
-INSERT INTO `kriteria` VALUES (1, 'a-001', 'new edit', 'min', 1, '2023-05-20 00:00:00');
+INSERT INTO `kriteria` VALUES (1, 'a-001', 'new edit', 'max', 1, '2023-05-20 00:00:00');
+INSERT INTO `kriteria` VALUES (2, '20230525085100696', 'new edit', 'min', 1, '2023-05-25 08:51:00');
 
 -- ----------------------------
 -- Table structure for mahasiswa
@@ -67,7 +68,7 @@ CREATE TABLE `mahasiswa`  (
   `dibuat_oleh` bigint(20) NULL DEFAULT NULL,
   `dibuat_tanggal` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of mahasiswa
@@ -86,11 +87,12 @@ CREATE TABLE `model`  (
   `dibuat_oleh` bigint(20) NULL DEFAULT NULL,
   `dibuat_tanggal` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of model
 -- ----------------------------
+INSERT INTO `model` VALUES (1, 1, 1, 4, 1, '2023-05-23 03:16:23');
 
 -- ----------------------------
 -- Table structure for parameter_penilaian
@@ -105,12 +107,15 @@ CREATE TABLE `parameter_penilaian`  (
   `dibuat_oleh` bigint(20) NULL DEFAULT NULL,
   `dibuat_tanggal` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of parameter_penilaian
 -- ----------------------------
-INSERT INTO `parameter_penilaian` VALUES (1, 1, 1, 'Penilaian', 5, 1, '2023-05-21 08:30:30');
+INSERT INTO `parameter_penilaian` VALUES (1, 1, 1, 'Penilaian', 4, 1, '2023-05-21 08:30:30');
+INSERT INTO `parameter_penilaian` VALUES (2, 1, 1, 'Penilaian2', 3, 1, '2023-05-21 08:30:30');
+INSERT INTO `parameter_penilaian` VALUES (3, 1, 1, 'Penilaian3', 2, 1, '2023-05-21 08:30:30');
+INSERT INTO `parameter_penilaian` VALUES (4, 1, 1, 'Penilaian4', 1, 1, '2023-05-21 08:30:30');
 
 -- ----------------------------
 -- Table structure for pengajuan_beasiswa
@@ -125,11 +130,14 @@ CREATE TABLE `pengajuan_beasiswa`  (
   `dibuat_oleh` int(11) NULL DEFAULT NULL,
   `dibuat_tanggal` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of pengajuan_beasiswa
 -- ----------------------------
+INSERT INTO `pengajuan_beasiswa` VALUES (2, 1, 1, 1, 1, 1, '2023-05-23 09:45:07');
+INSERT INTO `pengajuan_beasiswa` VALUES (3, 1, 1, 1, 2, 1, '2023-05-23 09:45:07');
+INSERT INTO `pengajuan_beasiswa` VALUES (4, 1, 1, 1, 3, 1, '2023-05-23 09:45:07');
 
 -- ----------------------------
 -- Table structure for user
@@ -144,7 +152,7 @@ CREATE TABLE `user`  (
   `mahasiswa_id` bigint(20) NULL DEFAULT NULL,
   `role` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
