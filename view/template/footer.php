@@ -1,5 +1,3 @@
-    <!--  Import Js Files -->
-    <script src="/public/dist/libs/jquery/dist/jquery.min.js"></script>
     <script src="/public/dist/libs/simplebar/dist/simplebar.min.js"></script>
     <script src="/public/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!--  core files -->

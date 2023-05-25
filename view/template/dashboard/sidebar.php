@@ -85,6 +85,14 @@
             </ul>
             </li>
             <li class="sidebar-item">
+                <a class="sidebar-link" href="/view/pengajuan_beasiswa/index.php" aria-expanded="false">
+                    <span>
+                        <i class="ti ti-accessible"></i>
+                    </span>
+                    <span class="hide-menu">Pengajuan Beasiswa</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
                 <a class="sidebar-link" href="/view/perhitungan.php" aria-expanded="false">
                     <span>
                         <i class="ti ti-function"></i>
