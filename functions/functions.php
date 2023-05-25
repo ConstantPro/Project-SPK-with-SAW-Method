@@ -624,7 +624,39 @@ function delete_pengajuan_beasiswa($id) {
     ];
 }
 
-// validation text form for input
+// function for perhitungan
+function get_data_perhitungan($beasiswa = null) {
+    $query = "SELECT 
+            b.nim, 
+            b.nama,
+            b.tahun_mengajukan,
+            SUM(if(c.sifat = 'max', (d.bobot / c.normalization), (c.normalization / d.bobot))) / COUNT(a.kriteria_id) as result
+        FROM pengajuan_beasiswa a 
+        JOIN mahasiswa b ON b.id = a.mahasiswa_id 
+        JOIN (
+            SELECT 
+                pengajuan_beasiswa.kriteria_id,
+                kriteria.sifat as sifat,
+                (SELECT bobot FROM model WHERE beasiswa_id = pengajuan_beasiswa.beasiswa_id AND kriteria_id = pengajuan_beasiswa.kriteria_id) as bobot,
+                ROUND(IF(kriteria.sifat = 'max', MAX(parameter_penilaian.bobot), MIN(parameter_penilaian.bobot))) as normalization
+            FROM pengajuan_beasiswa
+            JOIN parameter_penilaian ON pengajuan_beasiswa.nilai = parameter_penilaian.id
+            JOIN kriteria ON pengajuan_beasiswa.kriteria_id = kriteria.id
+            JOIN beasiswa ON pengajuan_beasiswa.beasiswa_id = beasiswa.id
+            WHERE pengajuan_beasiswa.beasiswa_id = '".$beasiswa."'
+            GROUP BY pengajuan_beasiswa.kriteria_id
+        ) c USING (kriteria_id)
+        JOIN parameter_penilaian d ON a.nilai = d.id
+        WHERE a.beasiswa_id = '".$beasiswa."' 
+        GROUP BY a.mahasiswa_id
+        ORDER BY result DESC";
+
+    $perhitungan = mysqli_query($GLOBALS['conn'], $query);
+
+    return $perhitungan;
+}
+
+// validation text form for input 
 function validation_text_form($data) {
     $data = trim($data);
     $data = stripslashes($data);

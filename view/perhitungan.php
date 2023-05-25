@@ -1,6 +1,8 @@
 <?php
   require(__DIR__.'/../functions/functions.php');
-  // $data = get_data_pengajuan_beasiswa();
+  $list_beasiswa = get_data_beasiswa();
+  $beasiswa = get_data_beasiswa()->fetch_assoc();
+  $data = get_data_perhitungan($beasiswa['id']);
   require(__DIR__.'/template/header.php');
   require(__DIR__.'/template/dashboard/loadingTemplate.php');
 
@@ -38,6 +40,18 @@
           <div class="px-4 py-3 border-bottom">
             <div class="card-title d-flex justify-content-between align-items-center">
               <h5 class="fw-semibold mb-0 lh-sm">Basic Table</h5>
+              <div class="form-group">
+                <div class="col">
+                  <div class="input-group">
+                      <select class="form-select" id="beasiswa" name="beasiswa">
+                        <option>Choose...</option>
+                        <?php foreach($list_beasiswa as $val) : ?>
+                          <option value="<?= $val['id']?>"><?= $val['nama']; ?></option>
+                        <?php endforeach; ?>
+                      </select>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="card-body p-4">
@@ -50,7 +64,14 @@
                     <th><h6 class="fs-4 fw-semibold mb-0">Perhitungan</h6></th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbody">
+                  <?php foreach($data as $val) : ?>
+                    <tr>
+                      <td><h6 class="fs-4 fw-normal mb-0"><?= $val['nim']; ?></h6></td>
+                      <td><h6 class="fs-4 fw-normal mb-0"><?= $val['nama']; ?></h6></td>
+                      <td><h6 class="fs-4 fw-normal mb-0"><?= $val['result'];?></h6></td>
+                    </tr>
+                  <?php endforeach; ?>
                 </tbody>
               </table>
             </div>
@@ -60,6 +81,33 @@
       <!-- container-fluid over -->
     </div>
   </div>
+
+  <script>
+    $(function() {
+        $('#beasiswa').on('change', function() {
+            let id = $(this).val();
+            $.ajax({
+                url: `http://<?= $_SERVER['HTTP_HOST']?>/functions/perhitungan.php?beasiswa=${id}`,
+                method: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    let html = '';
+                    $.each(response, function(key, value) {
+                      html += `
+                        <<tr>
+                          <td><h6 class="fs-4 fw-normal mb-0">${value['nim']}</h6></td>
+                          <td><h6 class="fs-4 fw-normal mb-0">${value['nama']}</h6></td>
+                          <td><h6 class="fs-4 fw-normal mb-0">${value['result']}</h6></td>
+                        </tr>
+                      `
+                    })
+                    $('#tbody').html(html);
+                }
+            })
+        })
+    })
+  </script>
+
 <?php
   require(__DIR__.'/template/dashboard/anotherActionFromTemplate.php');
   require(__DIR__.'/template/footer.php');

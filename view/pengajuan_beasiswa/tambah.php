@@ -108,7 +108,6 @@
                 method: 'GET',
                 dataType: 'json',
                 success: function(response) {
-                    console.log(response)
                     let html = '';
                     html = '<option selected>Choose...</option>'
                     $.each(response, function(key, value) {

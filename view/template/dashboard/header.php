@@ -348,7 +348,7 @@
                         </div>
                     </div>
                     </div>
-                    <a href="authentication-login.html" class="btn btn-outline-primary">Log Out</a>
+                    <a href="/view/logout.php" class="btn btn-outline-primary">Log Out</a>
                 </div>
                 </div>
             </div>
