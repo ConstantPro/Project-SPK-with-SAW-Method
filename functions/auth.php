@@ -12,4 +12,5 @@ if(isset($_POST['login'])) {
         return var_dump(['message' => $check_login['password']]);
 
     header('Location:http://'.$_SERVER['HTTP_HOST'].'/view/dashboard.php');
+    return;
 }
