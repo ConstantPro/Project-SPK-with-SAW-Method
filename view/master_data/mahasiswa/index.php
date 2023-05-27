@@ -43,14 +43,14 @@
           </div>
           <div class="card-body p-4">
             <div class="table-responsive rounded-2 mb-4">
-              <table class="table border text-nowrap customize-table mb-0 align-middle">
+              <table class="table border text-nowrap customize-table mb-0 align-middle table-responsive">
                 <thead class="text-dark fs-4">
                   <tr>
                     <th><h6 class="fs-4 fw-semibold mb-0">Nim</h6></th>
                     <th><h6 class="fs-4 fw-semibold mb-0">Nama</h6></th>
                     <th><h6 class="fs-4 fw-semibold mb-0">Alamat</h6></th>
                     <th><h6 class="fs-4 fw-semibold mb-0">Jenis Kelamin</h6></th>
-                    <th><h6 class="fs-4 fw-semibold mb-0">Tahun Mengajukan</h6></th>
+                    <th><h6 class="fs-4 fw-semibold mb-0">Tahun</h6></th>
                     <th><h6 class="fs-4 fw-semibold mb-0">Dibuat Oleh</h6></th>
                     <th><h6 class="fs-4 fw-semibold mb-0">Dibuat Tanggal</h6></th>
                     <th><h6 class="fs-4 fw-semibold mb-0">Opsi</h6></th>
