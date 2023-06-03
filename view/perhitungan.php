@@ -56,20 +56,20 @@
           </div>
           <div class="card-body p-4">
             <div class="table-responsive rounded-2 mb-4">
-              <table class="table border text-nowrap customize-table mb-0 align-middle">
-                <thead class="text-dark fs-4">
+              <table class="table border table-md text-nowrap customize-table mb-0 align-middle">
+                <thead class="text-dark fs-3">
                   <tr>
-                    <th><h6 class="fs-4 fw-semibold mb-0">Nim</h6></th>
-                    <th><h6 class="fs-4 fw-semibold mb-0">Nama</h6></th>
-                    <th><h6 class="fs-4 fw-semibold mb-0">Perhitungan</h6></th>
+                    <th><h6 class="fs-3 fw-semibold mb-0">Nim</h6></th>
+                    <th><h6 class="fs-3 fw-semibold mb-0">Nama</h6></th>
+                    <th><h6 class="fs-3 fw-semibold mb-0">Perhitungan</h6></th>
                   </tr>
                 </thead>
                 <tbody id="tbody">
                   <?php foreach($data as $val) : ?>
                     <tr>
-                      <td><h6 class="fs-4 fw-normal mb-0"><?= $val['nim']; ?></h6></td>
-                      <td><h6 class="fs-4 fw-normal mb-0"><?= $val['nama']; ?></h6></td>
-                      <td><h6 class="fs-4 fw-normal mb-0"><?= $val['result'];?></h6></td>
+                      <td><h6 class="fs-3 fw-normal mb-0"><?= $val['nim']; ?></h6></td>
+                      <td><h6 class="fs-3 fw-normal mb-0"><?= $val['nama']; ?></h6></td>
+                      <td><h6 class="fs-3 fw-normal mb-0"><?= $val['result'];?></h6></td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>
@@ -95,9 +95,9 @@
                     $.each(response, function(key, value) {
                       html += `
                         <<tr>
-                          <td><h6 class="fs-4 fw-normal mb-0">${value['nim']}</h6></td>
-                          <td><h6 class="fs-4 fw-normal mb-0">${value['nama']}</h6></td>
-                          <td><h6 class="fs-4 fw-normal mb-0">${value['result']}</h6></td>
+                          <td><h6 class="fs-3 fw-normal mb-0">${value['nim']}</h6></td>
+                          <td><h6 class="fs-3 fw-normal mb-0">${value['nama']}</h6></td>
+                          <td><h6 class="fs-3 fw-normal mb-0">${value['result']}</h6></td>
                         </tr>
                       `
                     })
