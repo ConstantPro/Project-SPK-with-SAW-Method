@@ -43,13 +43,13 @@
           </div>
           <div class="card-body p-4">
             <div class="table-responsive rounded-2 mb-4">
-              <table class="table border text-nowrap customize-table mb-0 align-middle">
-                <thead class="text-dark fs-4">
+              <table class="table table-md border text-nowrap customize-table mb-0 align-middle">
+                <thead class="text-dark fs-3">
                   <tr>
-                    <th><h6 class="fs-4 fw-semibold mb-0">Nama</h6></th>
-                    <th><h6 class="fs-4 fw-semibold mb-0">Dibuat Oleh</h6></th>
-                    <th><h6 class="fs-4 fw-semibold mb-0">Dibuat Tanggal</h6></th>
-                    <th><h6 class="fs-4 fw-semibold mb-0">Opsi</h6></th>
+                    <th><h6 class="fs-3 fw-semibold mb-0">Nama</h6></th>
+                    <th><h6 class="fs-3 fw-semibold mb-0">Dibuat Oleh</h6></th>
+                    <th><h6 class="fs-3 fw-semibold mb-0">Dibuat Tanggal</h6></th>
+                    <th><h6 class="fs-3 fw-semibold mb-0">Opsi</h6></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -58,13 +58,13 @@
                   ?>
                     <tr>
                       <td>
-                        <p class="mb-0 fw-normal fs-4"><?= $value['nama']; ?></p>
+                        <p class="mb-0 fw-normal fs-3"><?= $value['nama']; ?></p>
                       </td>
                       <td>
-                        <p class="mb-0 fw-normal fs-4"><?= $value['user_created']; ?></p>
+                        <p class="mb-0 fw-normal fs-3"><?= $value['user_created']; ?></p>
                       </td>
                       <td>
-                      <p class="mb-0 fw-normal fs-4"><?= $value['dibuat_tanggal']; ?></p>
+                      <p class="mb-0 fw-normal fs-3"><?= $value['dibuat_tanggal']; ?></p>
                       </td>
                       <td>
                         <a href="./edit.php?id=<?= $value['id']; ?>" class="btn btn-success btn-sm">Edit</a>

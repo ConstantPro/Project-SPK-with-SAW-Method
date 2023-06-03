@@ -65,7 +65,7 @@
                   <div class="form-group col">
                     <label for="bobot" class="form-label">Bobot</label>
                     <input type="text" class="form-control" name="bobot" placeholder="0">
-                    <small>e.g: 0.2, 1.2, 3.4</small>
+                    <small class="text-danger">*untuk penggunaan koma diubah dengan titik seperti 1.2, 3.4, 0.5</small>
                   </div>
                   <div class="col">
                       <button type="submit" class="btn btn-success btn-sm" name="simpan">Simpan</button>

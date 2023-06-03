@@ -79,7 +79,7 @@
                                 </div>
                             </div>
                             <div class="col">
-                                <label for="nilai" class="form-label">Model</label>
+                                <label for="nilai" class="form-label">Nilai</label>
                                 <div class="input-group">
                                     <label class="input-group-text" for="nilai">Opsi</label>
                                     <select class="form-select" id="nilai" name="nilai">
