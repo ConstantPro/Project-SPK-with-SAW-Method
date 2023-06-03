@@ -46,9 +46,9 @@
               <table class="table border table-md text-nowrap customize-table mb-0 align-middle">
                 <thead class="text-dark fs-3">
                   <tr>
-                    <th><h6 class="fs-3 fw-semibold mb-0">Nama</h6></th>
                     <th><h6 class="fs-3 fw-semibold mb-0">Beasiswa</h6></th>
                     <th><h6 class="fs-3 fw-semibold mb-0">Kriteria</h6></th>
+                    <th><h6 class="fs-3 fw-semibold mb-0">Nama</h6></th>
                     <th><h6 class="fs-3 fw-semibold mb-0">Nilai</h6></th>
                     <th><h6 class="fs-3 fw-semibold mb-0">Dibuat Oleh</h6></th>
                     <th><h6 class="fs-3 fw-semibold mb-0">Dibuat Tanggal</h6></th>
