@@ -3,7 +3,7 @@ require(__DIR__.'/../../../functions/functions.php');
 
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
-    $delete = delete_kriteria($id);
+    $delete = delete_parameter_penilaian($id);
     if($delete) {
         header('Location:http://'.$_SERVER['HTTP_HOST'].'/view/master_data/parameter_penilaian/index.php');
         return;
